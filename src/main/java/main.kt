@@ -1,4 +1,4 @@
-import artikon90.dao.ItemDAO
+import artikon90.git.dao.ItemDAO
 
 fun main() {
     var itemDAO = ItemDAO()

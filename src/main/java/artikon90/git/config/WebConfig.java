@@ -1,5 +1,6 @@
-package artikon90.config;
+package artikon90.git.config;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -20,13 +21,14 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
         return new Class[]{SpringConfig.class};
     }
 
+    @NotNull
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
 
     @Override
-    public void onStartup(ServletContext aServletContext) throws ServletException {
+    public void onStartup(@NotNull ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);
         registerCharacterEncodingFilter(aServletContext);
         registerHiddenFieldFilter(aServletContext);

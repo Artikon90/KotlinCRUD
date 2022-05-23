@@ -1,4 +1,4 @@
-package artikon90.model
+package artikon90.git.model
 
 class Item() {
     var idCounter : Int = 0

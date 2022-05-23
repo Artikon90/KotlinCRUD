@@ -1,4 +1,4 @@
-package artikon90.config;
+package artikon90.git.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -13,7 +13,7 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
-@ComponentScan("artikon90")
+@ComponentScan("artikon90.git")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
