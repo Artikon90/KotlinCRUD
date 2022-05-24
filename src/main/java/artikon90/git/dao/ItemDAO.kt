@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component
 class ItemDAO {
     private val itemList = mutableListOf<Item>()
     init {
-        itemList.add(Item(itemName = "Cup", amount = 4))
-        itemList.add(Item(itemName = "PC", amount = 1))
-        itemList.add(Item(itemName = "Keyboard", amount = 2))
-        itemList.add(Item(itemName = "PC Mouse", amount = 2))
-        itemList.add(Item(itemName = "Lamp", amount = 1))
+        itemList.add(Item(itemName = "Чашка", amount = 4))
+        itemList.add(Item(itemName = "Комп", amount = 1))
+        itemList.add(Item(itemName = "Клавиатура", amount = 2))
+        itemList.add(Item(itemName = "Комп. мышка", amount = 2))
+        itemList.add(Item(itemName = "Настольная лампа", amount = 1))
     }
     fun getItemList() = itemList
     fun getItemById(id:Int) = itemList.stream().filter {it -> it.itemId == id}.findAny().orElse(null)

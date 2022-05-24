@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item page</title>
+</head>
+<body>
+<p th:text="'Айди предмета: ' + ${itemById.itemId}">value</p>
+<p th:text="'Название предмета: ' + ${itemById.itemName}">value</p>
+<p th:text="'Количество предметов: ' + ${itemById.amount}">value</p>
+<br/>
+<a th:href="@{/items/{id}/edit(id=${itemById.itemId})}">Редактировать предмет</a>
+<form th:method="DELETE" th:action="@{/items/{id}(id=${itemById.itemId})}">
+    <input type="submit" value="Удалить предмет"/>
+</form>
+</body>
+</html>

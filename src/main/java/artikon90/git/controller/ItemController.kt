@@ -27,7 +27,7 @@ class ItemController() {
 
     @GetMapping("/{id}")
     fun getItemPage(@PathVariable("id") id:Int, model:Model): String {
-        model.addAttribute("itemsById", itemDAO.getItemById(id))
+        model.addAttribute("itemById", itemDAO.getItemById(id))
         return "item/showItemPage"
     }
 
