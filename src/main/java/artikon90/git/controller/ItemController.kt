@@ -48,4 +48,9 @@ class ItemController() {
         itemDAO.addNewItem(item)
         return "redirect:/items"
     }
+    @DeleteMapping("/{id}")
+    fun deleteItem(@PathVariable("id") id:Int): String {
+        itemDAO.deleteItem(id)
+        return "redirect:/items"
+    }
 }
