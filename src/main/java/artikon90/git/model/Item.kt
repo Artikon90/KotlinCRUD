@@ -1,7 +1,8 @@
 package artikon90.git.model
 
+var idCounter:Int = 0
+
 class Item() {
-    var idCounter : Int = 0
     var itemName : String = " "
     var itemId : Int = 0
     var amount : Int = 0

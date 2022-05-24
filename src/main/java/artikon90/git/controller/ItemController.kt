@@ -1,12 +1,11 @@
 package artikon90.git.controller
 
 import artikon90.git.dao.ItemDAO
+import artikon90.git.model.Item
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 
 @Controller
 @RequestMapping("/items")
@@ -29,6 +28,16 @@ class ItemController() {
     fun getItemPage(@PathVariable("id") id:Int, model:Model): String {
         model.addAttribute("itemById", itemDAO.getItemById(id))
         return "item/showItemPage"
+    }
+    @GetMapping("/{id}/edit")
+    fun editPage(@PathVariable("id") id:Int, model:Model):String {
+        model.addAttribute("itemToEdit", itemDAO.getItemById(id))
+        return "item/editItemPage"
+    }
+    @PatchMapping("/{id}")
+    fun editItem(@PathVariable("id") id:Int, @ModelAttribute("itemToEdit") item:Item): String {
+        itemDAO.editItem(id, item)
+        return "redirect:/items"
     }
 
 }

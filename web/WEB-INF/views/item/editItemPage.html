@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit item</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/items/{id}(id=${itemToEdit.itemId})}" th:object="${itemToEdit}">
+    <label style="color:orange" for="name">Введи новое название: </label>
+    <input type="text" th:field="*{itemName}" id="name"/>
+    <br />
+    <label style="color:orange" for="amount">Введи количество предметов: </label>
+    <input type="text" th:field="*{amount}" id="amount"/>
+    <br />
+    <input type="submit" value="Изменить!"/>
+</form>
+</body>
+</html>
