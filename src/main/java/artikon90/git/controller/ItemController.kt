@@ -2,6 +2,7 @@ package artikon90.git.controller
 
 import artikon90.git.dao.ItemDAO
 import artikon90.git.model.Item
+import artikon90.git.model.idCounter
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -37,7 +38,14 @@ class ItemController() {
     @PatchMapping("/{id}")
     fun editItem(@PathVariable("id") id:Int, @ModelAttribute("itemToEdit") item:Item): String {
         itemDAO.editItem(id, item)
+        return "redirect:/items/${id}"
+    }
+    @GetMapping("/add")
+    fun newItemPage(@ModelAttribute("itemToAdd") item:Item): String = "item/newItemPage"
+
+    @PostMapping()
+    fun addNewItem(@ModelAttribute("itemToAdd") item:Item): String {
+        itemDAO.addNewItem(item)
         return "redirect:/items"
     }
-
 }

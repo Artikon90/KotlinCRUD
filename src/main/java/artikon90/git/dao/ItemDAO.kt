@@ -1,6 +1,7 @@
 package artikon90.git.dao
 
 import artikon90.git.model.Item
+import artikon90.git.model.idCounter
 import org.springframework.stereotype.Component
 
 @Component
@@ -15,7 +16,10 @@ class ItemDAO {
     }
     fun getItemList() = itemList
     fun getItemById(id:Int) = itemList.stream().filter {it -> it.itemId == id}.findAny().orElse(null)
-    fun addNewItem(item:Item) = itemList.add(item)
+    fun addNewItem(item:Item) {
+        item.itemId = ++idCounter
+        itemList.add(item)
+    }
     fun editItem(id:Int, item:Item) {
         val itemToEdit = getItemById(id)
         itemToEdit.itemName = item.itemName

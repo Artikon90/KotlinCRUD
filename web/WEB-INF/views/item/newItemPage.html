@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Add new user</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/items}" th:object="${itemToAdd}">
+    <label style="color:orange" for="name">Введи название предмета: </label>
+    <input type="text" th:field="*{itemName}" id="name"/>
+    <br />
+    <label style="color:orange" for="amount">Введи его количество: </label>
+    <input type="text" th:field="*{amount}" id="amount"/>
+    <br />
+    <input type="submit" value="Добавить предмет"/>
+</form>
+</body>
+</html>
